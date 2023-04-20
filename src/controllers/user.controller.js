@@ -37,11 +37,7 @@ const getUser = async(req, res) => {
         
         )
 
-        if(!row[1]){
-            res.status(404).json({
-                message:"Usuario no encontrado"
-            });
-        }
+        // if(row[1]) return res.status(404).json({ message: 'Usuario no encontrado', ok: false});
 
         res.json({
             user: row ,
