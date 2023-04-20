@@ -1,7 +1,7 @@
 import { request, response } from 'express';
 import { uploadFile } from '../hepers/upload-files.js';
 
-const uploadFiles = async(req =  request, res = response) => {
+export const uploadFiles = async(req =  request, res = response) => {
     
     
     try {
@@ -25,3 +25,4 @@ const uploadFiles = async(req =  request, res = response) => {
         });
     }
 }
+

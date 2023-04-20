@@ -48,7 +48,7 @@ const getUser = async(req, res) => {
             ok: true
         });
     } catch (error) {
-        res.status.json({
+        res.status(500).json({
             message: "Reporte al administrador"
         })
     }

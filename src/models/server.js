@@ -1,7 +1,8 @@
 import express, { json, urlencoded } from "express";
 import { join } from 'path';
 import fileupload from "express-fileupload";
-import userRouter from '../routes/user.routes.js'
+import userRouter from '../routes/user.routes.js';
+import fileRouter from '../routes/files.routes.js';
 
 class Server {
 
@@ -38,6 +39,7 @@ class Server {
 
     routes(){
         this.app.use(this.paths.users, userRouter);
+        this.app.use(this.paths.files, fileRouter);
     }
 
     listen(){
