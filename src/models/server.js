@@ -1,5 +1,6 @@
 import express, { json, urlencoded } from "express";
 import { join } from 'path';
+import fileupload from "express-fileupload";
 import userRouter from '../routes/user.routes.js'
 
 class Server {
@@ -26,6 +27,13 @@ class Server {
         }));
 
         this.app.use( express.static( join('src', 'public')  ) );
+
+        this.app.use(fileupload({
+            useTempFiles: true,
+            tempFileDir: './src/public',
+            createParentPath: true
+        }));
+
     }
 
     routes(){
