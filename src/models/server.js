@@ -1,5 +1,5 @@
 import express, { json, urlencoded } from "express";
-
+import { join } from 'path';
 import userRouter from '../routes/user.routes.js'
 
 class Server {
@@ -9,7 +9,8 @@ class Server {
 
         
         this.paths = {
-            users: "/api/users"
+            users: "/api/users",
+            files: "api/files"
         }
 
         this.middleware();
@@ -23,6 +24,8 @@ class Server {
         this.app.use( urlencoded( {
             extended:false
         }));
+
+        this.app.use( express.static( join('src', 'public')  ) );
     }
 
     routes(){
